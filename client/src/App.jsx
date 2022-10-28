@@ -8,7 +8,6 @@ import NoticiaPrevia from './components/noticiaPrevia/NoticiaPrevia';
 import Noticia from './components/noticia/Noticia';
 
 import api from './Api';
-import axios from 'axios';
 
 
 const App = () => {
@@ -38,12 +37,17 @@ const App = () => {
                             {noticias?.map(data => {
                                 let slug = `noticias/${data.slug}`
                                 return (
-                                    <Link className='link__dom' to={slug}>
-                              
-                                            <NoticiaPrevia conteudo={data.post} titulo={data.titulo} key={data._id}/>
-                                     
+                                    <Link className='link__dom' 
+                                        to={slug}
+                                        >
+                                        <NoticiaPrevia 
+                                            conteudo={data.post} 
+                                            titulo={data.titulo} 
+                                            key={data._id}
+                                        />
                                     </Link>
-                                )}
+                                    )
+                                }
                             )}
                         </div>
                     </div>
